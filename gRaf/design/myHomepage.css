@@ -1,0 +1,384 @@
+#rig {
+    max-width:100%;
+    margin:0 auto; /*center aligned*/
+    padding:0;
+    font-size:0; /* Remember to change it back to normal font size if have captions */
+    list-style:none;
+    background-color:#000;
+}
+#rig li {
+    display: inline-block;
+    *display:inline;/*for IE6 - IE7*/
+    width:33%;
+    height: 33%;
+    vertical-align:middle;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+/* The wrapper for each item */
+.rig-cell {
+    /*margin:12px;
+    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
+    display:block;
+    position: relative;
+    overflow:hidden;
+}
+
+/* If have the image layer */
+.rig-img {
+    display:block;
+    width: 100%;
+    height: 100%;
+    border:none;
+    transform:scale(1);
+    transition:all 1s;
+}
+
+#rig li:hover .rig-img {
+    transform:scale(1.05);
+}
+
+/* If have the overlay layer */
+.rig-overlay {
+    position: absolute;
+    display:block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: #3DC0F1 url(img/link.png) no-repeat center 20%;
+    background-size:50px 50px;
+    opacity:0;
+    filter:alpha(opacity=0);/*For IE6 - IE8*/
+    transition:all 0.6s;
+}
+#rig li:hover .rig-overlay {
+    opacity:0.8;
+}
+
+/* If have captions */
+.rig-text {
+    display:block;
+    padding:0 30px;
+    box-sizing:border-box;
+    position:absolute;
+    left:0;
+    width:100%;
+    text-align:center;
+    text-transform:capitalize;
+    font-size:18px;
+    font-weight:bold;
+    font-family: 'Oswald', sans-serif;
+    font-weight:normal!important;
+    top:40%;
+    color:white;
+    opacity:0;
+    filter:alpha(opacity=0);/*For older IE*/
+    transform:translateY(-20px);
+    transition:all .3s;
+}
+#rig li:hover .rig-text {
+    transform:translateY(0px);
+    opacity:0.9;
+}
+
+@media (max-width: 9000px) {
+    #rig li {
+        width:33.33%;
+    }
+}
+
+@media (max-width: 700px) {
+    #rig li {
+        width:33.33%;
+    }
+}
+
+@media (max-width: 550px) {
+    #rig li {
+        width:50%;
+    }
+}
+
+.corner{
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.searchContainer{
+  position: relative;
+  margin: 10% auto;
+  max-width: 300px;
+}
+
+.searchContainer .searchBox{
+  position: relative;
+  width: 300px !important;
+  height: auto !important;
+  padding: 0 0 20px 0;
+  -webkit-box-shadow: 0 0 14px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 0 14px rgba(0,0,0,.1);
+  box-shadow: 0 0 14px rgba(0,0,0,.1);
+}
+
+.navbar{
+  border-radius: 0px!important;
+  margin-bottom: 1px;
+  border-bottom: 1px solid black;
+}
+
+.navbar-form{
+  padding-right: 0px;
+}
+
+.navbar-form .input-group{
+    border-radius: 5px;
+    width: 100%;
+}
+
+.nopadding{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+.timeline:before {
+  top: 0;
+  bottom: -35px;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  left: 50%;
+  margin-left: -1.5px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  background-color: #f3f3f3;
+}
+.timeline > li {
+  margin-bottom: 20px;
+  position: relative;
+}
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li > .timeline-datetime {
+  color: #737373;
+  position: absolute;
+  left: 55%;
+  top: 6px;
+  text-align: left;
+  padding: 10px;
+}
+.timeline > li > .timeline-datetime .timeline-time,
+.timeline > li > .timeline-datetime .timeline-date {
+  display: block;
+  font-size: 11px;
+  font-family: 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+}
+.timeline > li > .timeline-datetime .timeline-time {
+  font-size: 14px;
+  font-weight: bold;
+}
+.timeline > li > .timeline-panel {
+  background-color: #fbfbfb;
+  -lh-property: 0;
+width:-webkit-calc(50% - 45px);
+width:-moz-calc(50% - 45px);
+width:calc(50% - 45px);
+;
+  float: left;
+  border-radius: 2px;
+  padding: 0;
+  position: relative;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+.timeline > li > .timeline-panel .timeline-header .timeline-title {
+  display: block;
+  padding: 10px 20px 0;
+  min-width: 200px;
+  font-size: 14px;
+  font-family: 'Roboto', 'Lucida Sans', 'trebuchet MS', Arial, Helvetica /*rtl:"Droid Arabic Kufi", "WYekan"*/;
+  font-weight: 700;
+}
+.timeline > li > .timeline-panel .timeline-header .timeline-datetime {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-family: 'Roboto', 'Lucida Sans', 'trebuchet MS', Arial, Helvetica /*rtl:"Droid Arabic Kufi", "WYekan"*/;
+  font-size: 13px;
+  display: none;
+}
+.timeline > li > .timeline-panel .timeline-body {
+  padding: 10px 20px 20px;
+  line-height: 22px;
+}
+.timeline > li > .timeline-panel .timeline-body > p,
+.timeline > li > .timeline-panel .timeline-body > ul {
+  margin-bottom: 0;
+}
+.timeline > li > .timeline-panel .timeline-body > p + p {
+  margin-top: 5px;
+}
+.timeline > li > .timeline-panel .timeline-footer {
+  padding: 5px 20px 10px;
+  border-top: 1px solid #eeeeee;
+}
+.timeline > li > .timeline-panel .timeline-footer .footer-registrar {
+  font-size: 12px;
+  color: #555555;
+}
+.timeline > li > .timeline-panel:before {
+  position: absolute;
+  top: 16px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #e5e5e5;
+  border-right: 0 solid #e5e5e5;
+  border-bottom: 15px solid transparent;
+  content: " ";
+}
+.timeline > li > .timeline-panel:after {
+  position: absolute;
+  top: 17px;
+  right: -14px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fbfbfb;
+  border-right: 0 solid #fbfbfb;
+  border-bottom: 14px solid transparent;
+  content: " ";
+}
+.timeline > li .timeline-badge {
+  width: 50px;
+  height: 50px;
+  font-size: 1.4em;
+  text-align: center;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  margin-left: -25px;
+  background-image: linear-gradient(to bottom, #eeeeee 0, #fbfbfb 100%);
+  z-index: 100;
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  color: #444444;
+}
+.timeline > li .timeline-badge .badge-picture {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+.timeline > li .timeline-badge i {
+  line-height: 50px;
+}
+.timeline > li .timeline-badge[class*="bg-"] {
+  background-image: none !important;
+  color: #ffffff;
+}
+.timeline > li.timeline-inverted > .timeline-datetime {
+  left: auto;
+  right: 55%;
+  text-align: right;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+}
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto;
+}
+.timeline > li.timeline-node {
+  width: 150px;
+  margin: 0px auto 20px;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .timeline:before {
+    left: 40px;
+  }
+  .timeline > li > .timeline-panel {
+    -lh-property: 0;
+width:-webkit-calc(100% - 90px);
+width:-moz-calc(100% - 90px);
+width:calc(100% - 90px);
+;
+  }
+  .timeline > li > .timeline-badge {
+    left: 15px;
+    margin-left: 0;
+    top: 6px;
+  }
+  .timeline > li > .timeline-panel {
+    float: right;
+  }
+  .timeline > li > .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+  }
+  .timeline > li > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+  }
+  .timeline > li > .timeline-panel .timeline-header .timeline-title {
+    top: 5px;
+  }
+  .timeline > li > .timeline-panel .timeline-header .timeline-datetime {
+    display: block;
+  }
+  .timeline > li > .timeline-datetime {
+    display: none;
+  }
+  .timeline > li.timeline-node {
+    margin: 0 0 20px -35px;
+  }
+}
+@media (max-width: 500px) {
+  .timeline > li > .timeline-panel .timeline-header .timeline-datetime {
+    position: relative;
+    padding: 5px 30px 0;
+    margin: 0;
+  }
+  .timeline > li > .timeline-panel .timeline-body {
+    padding: 20px 20px 20px;
+  }
+}
+
+.page-body {
+  background: #eeeeee;
+  padding: 18px 20px 24px;
+}
